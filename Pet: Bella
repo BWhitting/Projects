@@ -1,0 +1,30 @@
+public class Main {
+    private String name;
+
+    // Original Pet output
+    public Main() {
+        this.name = "Pet Name";
+    }
+
+    // Method for name
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // Display pet information
+    public void displayInfo() {
+        System.out.println("Pet information:");
+        System.out.println("Name: " + name);
+    }
+
+    public static void main(String[] args) {
+        // Initiate first Pet object label
+        Main pet1 = new Main();
+        pet1.displayInfo();
+
+        // Instantiate second Pet object and set name
+        Main pet2 = new Main();
+        pet2.setName("Bella");
+        pet2.displayInfo();
+    }
+}
