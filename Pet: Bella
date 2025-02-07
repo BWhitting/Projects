@@ -1,30 +1,33 @@
-public class Main {
+class Pet {
     private String name;
 
-    // Original Pet output
-    public Main() {
-        this.name = "Pet Name";
+    // Constructor
+    private Pet() {
+        setName("Pet Name");
     }
 
-    // Method for name
-    public void setName(String name) {
+    // Set method
+    private void setName(String name) {
         this.name = name;
     }
 
-    // Display pet information
-    public void displayInfo() {
-        System.out.println("Pet information:");
-        System.out.println("Name: " + name);
+    // Get method
+    private String getName() {
+        return name;
+    }
+
+    // toString method
+
+    public String toString() {
+        return "Pet information:\nName: " + name;
     }
 
     public static void main(String[] args) {
-        // Initiate first Pet object label
-        Main pet1 = new Main();
-        pet1.displayInfo();
+        Pet pet1 = new Pet();
+        System.out.println(pet1);
 
-        // Instantiate second Pet object and set name
-        Main pet2 = new Main();
+        Pet pet2 = new Pet();
         pet2.setName("Bella");
-        pet2.displayInfo();
+        System.out.println(pet2);
     }
 }
