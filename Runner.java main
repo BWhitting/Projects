@@ -1,0 +1,54 @@
+// Tests.java
+import java.util.Scanner;
+import java.text.DecimalFormat;
+
+class Main {
+    private double average;
+    private int count;
+    private double sum;
+
+    public void getAverage() {
+        Scanner scanner = new Scanner(System.in);
+        sum = 0;
+        count = 0;
+        int score;
+
+        System.out.println("Enter test scores (press -1 to quit):");
+        score = scanner.nextInt();
+
+        while (score != -1) {
+            sum += score;
+            count++;
+            System.out.println("Enter test scores (press -1 to quit):");
+            score = scanner.nextInt();
+        }
+
+        if (count > 0) {
+            average = sum / count;
+        } else {
+            average = Double.NaN;
+        }
+    }
+
+    
+    public String toString() {
+        DecimalFormat df = new DecimalFormat("#.##");
+        return "The average of the " + count + " scores entered is " + (count > 0 ? df.format(average) : "NaN") + ".";
+    }
+}
+
+// Runner.java
+class Runner {
+    private Runner() {
+    }
+
+    public static void main(String[] args) {
+        Main tests = new Main();
+        tests.getAverage();
+        System.out.println(tests);
+    }
+
+    static Runner createRunner() {
+        return new Runner();
+    }
+}
