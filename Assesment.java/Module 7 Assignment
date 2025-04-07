@@ -1,0 +1,29 @@
+import javax.swing.JOptionPane;
+
+class Exam extends Assessment {
+    private int questions;
+    private int missed;
+
+    public Exam(String q, String m) {
+        try {
+            this.questions = Integer.parseInt(q);
+            this.missed = Integer.parseInt(m);
+            if (questions <= 0) {
+                throw new IllegalArgumentException("Number of questions must be greater than zero.");
+            }
+            setScore(calculateScore());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Invalid input. Please enter valid integers for questions and missed.");
+        } catch (IllegalArgumentException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }
+
+    private int calculateScore() {
+        return (questions - missed) * 100 / questions;
+    }
+
+    public double getPointsEach() {
+        return 100.0 / questions;
+    }
+}
